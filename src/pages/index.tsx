@@ -4,9 +4,10 @@ import { Header } from '@/components/Header';
 import { TopBar } from '@/components/TopBar';
 import { HomeHeroCategories } from '@/components/HomeHeroCategories';
 import { Categories } from '@/models/Categories';
-import { Box, Container, Flex } from '@chakra-ui/react';
+import { AspectRatio, Box, Container, Flex, Text } from '@chakra-ui/react';
 import { AdvantageItem } from '@/components/AdvantageItem';
 import { AdvantageSection } from '@/components/AdvantageSection';
+import Image from 'next/image';
 
 type Product = {
   id: number;
@@ -45,11 +46,20 @@ export default function Home({ products, categories }: Props) {
           <HomeHeroCategories categories={categories}></HomeHeroCategories>
           <AdvantageSection />
         </Container>
-        {/* <ol>
+
+        <Box margin="2rem auto" width="255px" border="solid 1px" borderColor="gray.200" >
+          <AspectRatio position="relative" ratio="1" maxWidth="100%" >
+            <Image src=" https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="" fill="true" style={{objectFit: "contain"}}/>
+          </AspectRatio>
+          <Text>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</Text>
+          <Text>$ 38.00</Text>
+        </Box>
+
+        <ol>
           {products.map((product) => {
             return <li key={product.id}>{product.title}</li>;
           })}
-        </ol> */}
+        </ol>
       </main>
     </>
   );
